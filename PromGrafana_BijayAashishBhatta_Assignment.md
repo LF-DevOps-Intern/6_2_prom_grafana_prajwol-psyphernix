@@ -17,21 +17,30 @@
 			$ sudo chown prometheus:prometheus /usr/local/bin/promtool
 			$ sudo cp -r prometheus-2.31.1.linux-amd64/consoles /etc/prometheus/
 			$ sudo cp -r prometheus-2.31.1.linux-amd64/console_libraries /etc/prometheus/
-			$ sudo chown prometheus:prometheus /etc/prometheus//consoles
-			$ sudo chown prometheus:prometheus /etc/prometheus//console_libraries
+			$ sudo chown prometheus:prometheus /etc/prometheus/consoles
+			$ sudo chown prometheus:prometheus /etc/prometheus/console_libraries
+			$ sudo vim get-pass.py
+	
+	![image](https://user-images.githubusercontent.com/34814966/145767552-2d7dedc8-fb89-41c6-85f1-b230f0f53717.png)
+			
+			$ python3 get-pass.py
+			$ sudo apt install python3-bcrypt
+			$ sudo vim /etc/prometheus/web.yaml
+			
+	![image](https://user-images.githubusercontent.com/34814966/145771787-1aab51c7-46fa-473c-ab74-7fbd5cca6a53.png)
+
 			$ sudo nano /etc/prometheus/prometheus.yml
 			
 	![image](https://user-images.githubusercontent.com/34814966/145751995-46632db2-1422-4a24-b46b-43a2a301da7a.png)
 	
 			sudo vim /etc/systemd/system/prometheus.service
 			
-	![image](https://user-images.githubusercontent.com/34814966/145752229-eb6a2f69-ba91-48d7-8c43-d6f3bdec7854.png)
+	![image](https://user-images.githubusercontent.com/34814966/145772190-8da79c68-27c2-41ff-87df-41612185429d.png)
 
 			$ sudo systemctl daemon-reload
 			$ sudo systemctl start prometheus
 			$ sudo systemctl enable prometheus
 			$ sudo systemctl status prometheus
-			
 					
 - Configuration basic authentication username/password
 - Screenhot of login prompt while trying to access prometheus
