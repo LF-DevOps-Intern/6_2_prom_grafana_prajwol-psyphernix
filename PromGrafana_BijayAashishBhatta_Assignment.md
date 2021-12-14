@@ -40,21 +40,31 @@
 		[Install]
 		WantedBy=multi-user.target
 		EOF
+ 
+		$ for i in rules rules.d files_sd; do sudo chown -R prometheus:prometheus /etc/prometheus/${i}; done
+		$ for i in rules rules.d files_sd; do sudo chmod -R 775 /etc/prometheus/${i}; done
+		$ sudo chown -R prometheus:prometheus /var/lib/prometheus/
+		$ sudo systemctl daemon-reload
+		$ sudo systemctl start prometheus
+		$ sudo systemctl enable prometheus
+		$ sudo ufw allow 9090/tcp
+		$ systemctl status prometheus
+	
+	![image](https://user-images.githubusercontent.com/34814966/145926048-5bb1f8af-becb-4993-828e-e714c7011784.png)
+	
+		$ sudo apt install python3-bcrypt
+		$ sudo vim gen-pass.py
+		
+	![image](https://user-images.githubusercontent.com/34814966/145926260-b63cc3fe-6f63-4aaf-beaf-cd5ab93d3f24.png)
 
-		 $ sudo vim /etc/systemd/system/prometheus.service 
-		 $ for i in rules rules.d files_sd; do sudo chown -R prometheus:prometheus /etc/prometheus/${i}; done
-		 $ for i in rules rules.d files_sd; do sudo chmod -R 775 /etc/prometheus/${i}; done
-		 $ sudo chown -R prometheus:prometheus /var/lib/prometheus/
-		 $ sudo systemctl daemon-reload
-		 $ sudo systemctl start prometheus
-		 $ sudo systemctl enable prometheus
-		 $ sudo ufw allow 9090/tcp
-		 $ systemctl status prometheus
-
-					
-- Configuration basic authentication username/password
-- Screenhot of login prompt while trying to access prometheus
-- Screenshot of prometheus dashboard
+		$ python3 gen-pass.py
+		$ sudo vim web-config.yml
+		
+	![image](https://user-images.githubusercontent.com/34814966/145926529-0d9f5a8c-4b49-4ca1-93dc-85ea5962e6f1.png)
+	
+		$ promtool check web-config web-config.yml
+		$ sudo
+		
 
 2. Install node exporter on another machine than the server
 - Add that machine target to server configuration
@@ -66,39 +76,3 @@
 - Screenshot of working data source config
 - Import & apply dashboard for node_exporter
 - Screenshot of dashboard of nodes with live metrics shown.
-
-Sample Server Config:
-global:
-  scrape_interval: 10s
-  scrape_timeout: 6s
-
-scrape_configs:
-  - job_name: 'prometheus'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['10.10.4.105:9090']
-
-  - job_name: 'node'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['10.10.5.218:9100','10.10.4.105:9100']
-
-  - job_name: 'docker'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['10.10.5.218:9323']
-
-  - job_name: 'mysql'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['10.10.5.218:9104']
-
-rule_files:
-  - "prometheus-rules.yml"
-
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets: ['localhost:9093']
-
-
