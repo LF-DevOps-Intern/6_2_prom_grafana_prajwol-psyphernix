@@ -66,6 +66,11 @@
 		$ sudo vim /etc/systemd/system/prometheus.service
 	
 	![image](https://user-images.githubusercontent.com/34814966/145928190-1a64df75-dca5-485e-a9ec-9065e10f7a09.png)
+	
+	![image](https://user-images.githubusercontent.com/34814966/145942425-8772e6bc-08fc-4e4d-b0a4-91c351d6700b.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145942513-02173229-1f53-4aea-9228-d7b8b58c0790.png)
+
 
 2. Install node exporter on another machine than the server
 - Add that machine target to server configuration
