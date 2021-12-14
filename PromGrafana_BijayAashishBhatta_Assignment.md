@@ -122,8 +122,8 @@
 
 	![image](https://user-images.githubusercontent.com/34814966/145960768-bc60a1bc-2c23-4d37-b74c-26f65470a5f9.png)
 
+	![image](https://user-images.githubusercontent.com/34814966/145961279-4f18ec5b-a909-4a38-ab46-73ee79bb6d87.png)
 
-- Add prometheus data source to grafana, should be connected through basic auth
-- Screenshot of working data source config
-- Import & apply dashboard for node_exporter
-- Screenshot of dashboard of nodes with live metrics shown.
+	![image](https://user-images.githubusercontent.com/34814966/145961766-ac15017f-3707-4c1d-877d-de481849ee0f.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145962400-24757818-ec21-4ac1-8266-eb94bf365ba5.png)
