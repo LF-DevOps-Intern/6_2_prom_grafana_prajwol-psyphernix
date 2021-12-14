@@ -58,13 +58,14 @@
 	![image](https://user-images.githubusercontent.com/34814966/145926260-b63cc3fe-6f63-4aaf-beaf-cd5ab93d3f24.png)
 
 		$ python3 gen-pass.py
-		$ sudo vim web-config.yml
+		$ sudo vim /etc/prometheus/web-config.yml
 		
 	![image](https://user-images.githubusercontent.com/34814966/145926529-0d9f5a8c-4b49-4ca1-93dc-85ea5962e6f1.png)
 	
 		$ promtool check web-config web-config.yml
-		$ sudo
-		
+		$ sudo vim /etc/systemd/system/prometheus.service
+	
+	![image](https://user-images.githubusercontent.com/34814966/145928190-1a64df75-dca5-485e-a9ec-9065e10f7a09.png)
 
 2. Install node exporter on another machine than the server
 - Add that machine target to server configuration
