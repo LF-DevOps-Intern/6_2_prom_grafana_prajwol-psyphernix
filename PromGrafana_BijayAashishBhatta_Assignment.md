@@ -72,7 +72,7 @@
 	![image](https://user-images.githubusercontent.com/34814966/145942513-02173229-1f53-4aea-9228-d7b8b58c0790.png)
 
 
-2. **Install node exporter on Kali Linux on Raspberry Pi 4 (ARM):**
+2. **Installing node exporter on Kali Linux on Raspberry Pi 4 (ARM):**
 
 		$ wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-armv7.tar.gz
    		$ tar xvfz node_exporter-1.3.1.linux-armv7.tar.gz
@@ -89,12 +89,40 @@
 	
 	![image](https://user-images.githubusercontent.com/34814966/145946788-3d8c62e1-3d9e-46ec-ab7f-0484e3a3a324.png)
 
+	![image](https://user-images.githubusercontent.com/34814966/145947928-ed4134f7-3b54-4929-b1c1-0fa389b784ec.png)
 
-- Add that machine target to server configuration
-- Share screenshot from status->targets to show the available nodes
-- Share configuration of node exporter & prometheus server
+3. **Installing grafana server on same server as prometheus:**
 
-3. Install grafana server on same server as prometheus 
+	 	$ sudo apt-get install -y apt-transport-https
+		$ sudo apt-get install -y software-properties-common wget
+		$ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+		$ echo "deb https://packages.grafana.com/enterprise/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+		$ sudo apt-get update
+		$ sudo apt-get install grafana
+		$ sudo systemctl daemon-reload
+		$ sudo systemctl start grafana-server
+		$ sudo systemctl enable grafana-server.service
+		$ sudo systemctl status grafana-server
+		
+	![image](https://user-images.githubusercontent.com/34814966/145954172-a00451da-eb70-40ba-85f2-eaeb04a9ec1e.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145954525-111c7a7f-27fd-4692-b39f-3c2daedc83f7.png)
+	
+	![image](https://user-images.githubusercontent.com/34814966/145954980-d99cb587-e49c-48fb-aab1-d4fdc8a5fb67.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145955123-f55ca259-836d-4041-b2ef-0e9d9e702ad2.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145955694-10e29701-9b3b-4651-9a3a-16dc1dcba734.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145955806-ad0b6a4c-eadf-4d20-90cf-9d07ce6bb178.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145960607-e3cbb92f-2c11-46e7-91aa-27d294e1dff5.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145960711-173ad34a-4bfc-47e7-9ef3-798aa7eaa9e0.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145960768-bc60a1bc-2c23-4d37-b74c-26f65470a5f9.png)
+
+
 - Add prometheus data source to grafana, should be connected through basic auth
 - Screenshot of working data source config
 - Import & apply dashboard for node_exporter
