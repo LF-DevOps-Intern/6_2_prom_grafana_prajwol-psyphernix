@@ -1,4 +1,4 @@
-1. **Installing Prometheus Server:**
+1. **Installing Prometheus Server on Kubuntu 20.04 LTS:**
 			
 		$ sudo groupadd --system prometheus
  		$ sudo useradd -s /sbin/nologin --system -g prometheus prometheus
@@ -72,7 +72,24 @@
 	![image](https://user-images.githubusercontent.com/34814966/145942513-02173229-1f53-4aea-9228-d7b8b58c0790.png)
 
 
-2. Install node exporter on another machine than the server
+2. **Install node exporter on Kali Linux on Raspberry Pi 4 (ARM):**
+
+		$ wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-armv7.tar.gz
+   		$ tar xvfz node_exporter-1.3.1.linux-armv7.tar.gz
+	   	$ sudo mv node_exporter-1.3.1.linux-armv7.tar.gz/node_exporter /usr/bin/
+		$ sudo vim /etc/systemd/system/node_exporter.service
+	
+	![image](https://user-images.githubusercontent.com/34814966/145945255-0333b40f-6004-465f-820c-59121155185b.png)
+	
+	![image](https://user-images.githubusercontent.com/34814966/145945540-e2bc6ed7-6b5f-4895-b32b-e77f14fad377.png)
+
+	![image](https://user-images.githubusercontent.com/34814966/145945652-9210cc25-7f0b-463b-8a0e-81b71a8fab62.png)
+
+		$ sudo vim /etc/prometheus/prometheus.yml
+	
+	![image](https://user-images.githubusercontent.com/34814966/145946788-3d8c62e1-3d9e-46ec-ab7f-0484e3a3a324.png)
+
+
 - Add that machine target to server configuration
 - Share screenshot from status->targets to show the available nodes
 - Share configuration of node exporter & prometheus server
